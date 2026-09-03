@@ -10,7 +10,7 @@ with live progress shown in a Streamlit UI.
 </p>
 
 ## How it works
-
+```
 ┌─────────────────────────────────────────────────────┐
 │           Streamlit UI (app.py)                     │
 │      Multi-Agent Research Assistant Interface       │
@@ -40,7 +40,7 @@ with live progress shown in a Streamlit UI.
             │ Critic     │
             │ Chain      │
             └────────────┘
-
+```
 1. **Search Agent** — queries Tavily for recent, reliable sources on the topic.
 2. **Reader Agent** — picks the most relevant URL from the search results and
    scrapes it for deeper content (via `trafilatura` → `readability` → raw
