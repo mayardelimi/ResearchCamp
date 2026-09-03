@@ -11,16 +11,35 @@ with live progress shown in a Streamlit UI.
 
 ## How it works
 
-```
- topic
-   │
-   ▼
-┌─────────────┐     ┌─────────────┐     ┌──────────────┐     ┌──────────────┐
-│ Search Agent│ ──▶ │ Reader Agent│ ──▶ │ Writer Chain │ ──▶ │ Critic Chain │
-│ (Tavily)    │     │ (scraper)   │     │ (drafts      │     │ (scores &    │
-│             │     │             │     │  report)     │     │  reviews)    │
-└─────────────┘     └─────────────┘     └──────────────┘     └──────────────┘
-```
+┌─────────────────────────────────────────────────────┐
+│           Streamlit UI (app.py)                     │
+│      Multi-Agent Research Assistant Interface       │
+└──────────────────┬──────────────────────────────────┘
+                   │
+┌──────────────────▼──────────────────────────────────┐
+│      Research Pipeline (pipeline.py)                │
+│        Orchestrates multi-agent workflow            │
+└──────────────────┬──────────────────────────────────┘
+                   │
+    ┌──────────────┼──────────────┐
+    │              │              │
+┌───▼───┐    ┌────▼─────┐   ┌───▼────┐
+│Search │    │   Reader  │   │ Writer │
+│Agent  │    │   Agent   │   │ Chain  │
+└───┬───┘    └────┬─────┘   └───┬────┘
+    │             │             │
+    │  ┌──────────▼─────────┐   │
+    └─▶│  Tools Layer       │◀──┘
+       │                    │
+       │ • web_search      │
+       │ • scrape_url      │
+       │                    │
+       └────────┬───────────┘
+                │
+            ┌───▼────────┐
+            │ Critic     │
+            │ Chain      │
+            └────────────┘
 
 1. **Search Agent** — queries Tavily for recent, reliable sources on the topic.
 2. **Reader Agent** — picks the most relevant URL from the search results and
