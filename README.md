@@ -5,8 +5,18 @@ prompt, and four agents/chains work through it in sequence — searching the web
 scraping the most relevant page, drafting a structured report, and critiquing it —
 with live progress shown in a Streamlit UI.
 
+## Features
+
+    Multi-Agent Architecture: Specialized agents for searching, reading, writing, and critiquing
+    Automated Web Research: Intelligent web search with Tavily API
+    Smart Content Extraction: Advanced web scraping with multiple fallback strategies
+    AI-Powered Report Generation: Automatically generates structured research reports
+    Quality Evaluation: Built-in critic agent for report validation and scoring
+    Interactive UI: Streamlit-based user interface for easy interaction
+    Pipeline Orchestration: Seamless coordination of multiple agents
+
 <p align="center">
-  <img src="docs/screenshots/01-pipeline-running.png" alt="ResearchCamp pipeline running" width="800">
+  <img src="docs/01-pipeline-running.png" alt="ResearchCamp pipeline running" width="800">
 </p>
 
 ## How it works
